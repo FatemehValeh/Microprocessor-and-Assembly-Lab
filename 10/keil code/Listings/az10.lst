@@ -1,0 +1,453 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 400E0E00 
+                       PIO_PER equ              0x400E0E00
+    2 00000000 400E0E10 
+                       PIO_OER equ              0x400E0E10
+    3 00000000 400E0E34 
+                       PIO_CODR
+                               equ              0x400E0E34
+    4 00000000 400E0E30 
+                       PIO_SODR
+                               equ              0x400E0E30
+    5 00000000 400E0E20 
+                       PIO_IFER
+                               equ              0x400E0E20
+    6 00000000 400E0E64 
+                       PIO_PUER
+                               equ              0x400E0E64
+    7 00000000 400E0E4C 
+                       PIO_ISR equ              0x400E0E4C
+    8 00000000 400E0E3C 
+                       PIO_PDSR
+                               equ              0x400E0E3C
+    9 00000000         
+   10 00000000                 area             blinkCode, code, readonly
+   11 00000000                 export           __main
+   12 00000000                 entry
+   13 00000000         
+   14 00000000         __main
+   15 00000000 F000 F862       bl               enable_pio
+   16 00000004 F000 F867       bl               enable_input
+   17 00000008         
+   18 00000008         loop
+   19 00000008 F000 F86F       bl               led_off
+   20 0000000C 4C41            ldr              r4, =PIO_ISR
+   21 0000000E 6825            ldr              r5, [r4]
+   22 00000010 F04F 0408       mov              r4, #2_1000
+   23 00000014 42AC            cmp              r4, r5
+   24 00000016 D000            beq              blink
+   25 00000018 E7F6            b                loop
+   26 0000001A         
+   27 0000001A         blink
+   28 0000001A F000 F82B       bl               led_left_on
+   29 0000001E F000 F837       bl               led_middle_on
+   30 00000022 F000 F843       bl               led_right_on
+   31 00000026         
+   32 00000026 F000 F865       bl               delay
+   33 0000002A F000 F846       bl               led_right_off
+   34 0000002E         
+   35 0000002E F000 F861       bl               delay
+   36 00000032 F000 F83B       bl               led_right_on
+   37 00000036 F000 F832       bl               led_middle_off
+   38 0000003A         
+   39 0000003A F000 F85B       bl               delay
+   40 0000003E F000 F83C       bl               led_right_off
+   41 00000042         
+   42 00000042 F000 F857       bl               delay
+   43 00000046 F000 F831       bl               led_right_on
+   44 0000004A F000 F821       bl               led_middle_on
+   45 0000004E F000 F818       bl               led_left_off
+   46 00000052         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   47 00000052 F000 F84F       bl               delay
+   48 00000056 F000 F830       bl               led_right_off
+   49 0000005A         
+   50 0000005A F000 F84B       bl               delay
+   51 0000005E F000 F825       bl               led_right_on
+   52 00000062 F000 F81C       bl               led_middle_off
+   53 00000066         
+   54 00000066 F000 F845       bl               delay
+   55 0000006A F000 F826       bl               led_right_off
+   56 0000006E         
+   57 0000006E F000 F841       bl               delay
+   58 00000072         
+   59 00000072 E7D2            b                blink
+   60 00000074         
+   61 00000074         led_left_on
+   62 00000074 F04F 0801       mov              r8, #2_001
+   63 00000078         
+   64 00000078 F8DF 909C       ldr              r9, =PIO_SODR
+   65 0000007C F8C9 8000       str              r8, [r9]
+   66 00000080         
+   67 00000080 4770            bx               lr
+   68 00000082         
+   69 00000082         led_left_off
+   70 00000082 F04F 0801       mov              r8, #2_001
+   71 00000086         
+   72 00000086 F8DF 9094       ldr              r9, =PIO_CODR
+   73 0000008A F8C9 8000       str              r8, [r9]
+   74 0000008E         
+   75 0000008E 4770            bx               lr
+   76 00000090         
+   77 00000090         led_middle_on
+   78 00000090 F04F 0802       mov              r8, #2_010
+   79 00000094         
+   80 00000094 F8DF 9080       ldr              r9, =PIO_SODR
+   81 00000098 F8C9 8000       str              r8, [r9]
+   82 0000009C         
+   83 0000009C 4770            bx               lr
+   84 0000009E         
+   85 0000009E         led_middle_off
+   86 0000009E F04F 0802       mov              r8, #2_010
+   87 000000A2         
+   88 000000A2 F8DF 9078       ldr              r9, =PIO_CODR
+   89 000000A6 F8C9 8000       str              r8, [r9]
+   90 000000AA         
+   91 000000AA 4770            bx               lr
+   92 000000AC         
+   93 000000AC         led_right_on
+   94 000000AC F04F 0804       mov              r8, #2_100
+   95 000000B0         
+   96 000000B0 F8DF 9064       ldr              r9, =PIO_SODR
+   97 000000B4 F8C9 8000       str              r8, [r9]
+   98 000000B8         
+   99 000000B8 4770            bx               lr
+  100 000000BA         
+  101 000000BA         led_right_off
+  102 000000BA F04F 0804       mov              r8, #2_100
+  103 000000BE         
+  104 000000BE F8DF 905C       ldr              r9, =PIO_CODR
+  105 000000C2 F8C9 8000       str              r8, [r9]
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+  106 000000C6         
+  107 000000C6 4770            bx               lr
+  108 000000C8         
+  109 000000C8         
+  110 000000C8         enable_pio
+  111 000000C8 F04F 0407       mov              r4, #2_111
+  112 000000CC         
+  113 000000CC 4D14            ldr              r5, =PIO_PER
+  114 000000CE 602C            str              r4, [r5]
+  115 000000D0         
+  116 000000D0 4D14            ldr              r5, =PIO_OER
+  117 000000D2 602C            str              r4, [r5]
+  118 000000D4         
+  119 000000D4 4770            bx               lr
+  120 000000D6         
+  121 000000D6         enable_input
+  122 000000D6 F04F 0418       mov              r4, #2_11000
+  123 000000DA         
+  124 000000DA 4D13            ldr              r5, =PIO_IFER
+  125 000000DC 602C            str              r4, [r5]
+  126 000000DE         
+  127 000000DE 4770            bx               lr
+  128 000000E0         
+  129 000000E0         led_on
+  130 000000E0 F04F 0407       mov              r4, #2_111
+  131 000000E4 4D0C            ldr              r5, =PIO_SODR
+  132 000000E6 602C            str              r4, [r5]
+  133 000000E8 4770            bx               lr
+  134 000000EA         
+  135 000000EA         led_off
+  136 000000EA F04F 0407       mov              r4, #2_111
+  137 000000EE 4D0B            ldr              r5, =PIO_CODR
+  138 000000F0 602C            str              r4, [r5]
+  139 000000F2 4770            bx               lr
+  140 000000F4         
+  141 000000F4         delay
+  142 000000F4 F04F 0400       mov              r4, #0
+  143 000000F8 F44F 4520       ldr              r5, =0x0000A000
+  144 000000FC         
+  145 000000FC         delay_incrementor
+  146 000000FC 4E05            ldr              r6, =PIO_ISR
+  147 000000FE 6837            ldr              r7, [r6]
+  148 00000100 F04F 0610       mov              r6, #2_10000
+  149 00000104 42BE            cmp              r6, r7
+  150 00000106 F43F AF7F       beq              loop
+  151 0000010A F104 0401       add              r4, r4, #1
+  152 0000010E 42AC            cmp              r4, r5
+  153 00000110 D1F4            bne              delay_incrementor
+  154 00000112 4770            bx               lr
+  155 00000114         
+  156 00000114                 end
+              400E0E4C 
+              400E0E30 
+              400E0E34 
+              400E0E00 
+              400E0E10 
+              400E0E20 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\az10.d -o.\objects\az10.o -I.\RTE\_Target_1 -IC:\Keil_v5
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1
+.0.62\include --predefine="__UVISION_VERSION SETA 525" --predefine="_RTE_ SETA 
+1" --predefine="__SAM3N4A__ SETA 1" --list=.\listings\az10.lst az10.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 14 in file az10.s
+   Uses
+      At line 11 in file az10.s
+Comment: __main used once
+blink 0000001A
+
+Symbol: blink
+   Definitions
+      At line 27 in file az10.s
+   Uses
+      At line 24 in file az10.s
+      At line 59 in file az10.s
+
+blinkCode 00000000
+
+Symbol: blinkCode
+   Definitions
+      At line 10 in file az10.s
+   Uses
+      None
+Comment: blinkCode unused
+delay 000000F4
+
+Symbol: delay
+   Definitions
+      At line 141 in file az10.s
+   Uses
+      At line 32 in file az10.s
+      At line 35 in file az10.s
+      At line 39 in file az10.s
+      At line 42 in file az10.s
+      At line 47 in file az10.s
+      At line 50 in file az10.s
+      At line 54 in file az10.s
+      At line 57 in file az10.s
+
+delay_incrementor 000000FC
+
+Symbol: delay_incrementor
+   Definitions
+      At line 145 in file az10.s
+   Uses
+      At line 153 in file az10.s
+Comment: delay_incrementor used once
+enable_input 000000D6
+
+Symbol: enable_input
+   Definitions
+      At line 121 in file az10.s
+   Uses
+      At line 16 in file az10.s
+Comment: enable_input used once
+enable_pio 000000C8
+
+Symbol: enable_pio
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 110 in file az10.s
+   Uses
+      At line 15 in file az10.s
+Comment: enable_pio used once
+led_left_off 00000082
+
+Symbol: led_left_off
+   Definitions
+      At line 69 in file az10.s
+   Uses
+      At line 45 in file az10.s
+Comment: led_left_off used once
+led_left_on 00000074
+
+Symbol: led_left_on
+   Definitions
+      At line 61 in file az10.s
+   Uses
+      At line 28 in file az10.s
+Comment: led_left_on used once
+led_middle_off 0000009E
+
+Symbol: led_middle_off
+   Definitions
+      At line 85 in file az10.s
+   Uses
+      At line 37 in file az10.s
+      At line 52 in file az10.s
+
+led_middle_on 00000090
+
+Symbol: led_middle_on
+   Definitions
+      At line 77 in file az10.s
+   Uses
+      At line 29 in file az10.s
+      At line 44 in file az10.s
+
+led_off 000000EA
+
+Symbol: led_off
+   Definitions
+      At line 135 in file az10.s
+   Uses
+      At line 19 in file az10.s
+Comment: led_off used once
+led_on 000000E0
+
+Symbol: led_on
+   Definitions
+      At line 129 in file az10.s
+   Uses
+      None
+Comment: led_on unused
+led_right_off 000000BA
+
+Symbol: led_right_off
+   Definitions
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 101 in file az10.s
+   Uses
+      At line 33 in file az10.s
+      At line 40 in file az10.s
+      At line 48 in file az10.s
+      At line 55 in file az10.s
+
+led_right_on 000000AC
+
+Symbol: led_right_on
+   Definitions
+      At line 93 in file az10.s
+   Uses
+      At line 30 in file az10.s
+      At line 36 in file az10.s
+      At line 43 in file az10.s
+      At line 51 in file az10.s
+
+loop 00000008
+
+Symbol: loop
+   Definitions
+      At line 18 in file az10.s
+   Uses
+      At line 25 in file az10.s
+      At line 150 in file az10.s
+
+16 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+PIO_CODR 400E0E34
+
+Symbol: PIO_CODR
+   Definitions
+      At line 3 in file az10.s
+   Uses
+      At line 72 in file az10.s
+      At line 88 in file az10.s
+      At line 104 in file az10.s
+      At line 137 in file az10.s
+
+PIO_IFER 400E0E20
+
+Symbol: PIO_IFER
+   Definitions
+      At line 5 in file az10.s
+   Uses
+      At line 124 in file az10.s
+Comment: PIO_IFER used once
+PIO_ISR 400E0E4C
+
+Symbol: PIO_ISR
+   Definitions
+      At line 7 in file az10.s
+   Uses
+      At line 20 in file az10.s
+      At line 146 in file az10.s
+
+PIO_OER 400E0E10
+
+Symbol: PIO_OER
+   Definitions
+      At line 2 in file az10.s
+   Uses
+      At line 116 in file az10.s
+Comment: PIO_OER used once
+PIO_PDSR 400E0E3C
+
+Symbol: PIO_PDSR
+   Definitions
+      At line 8 in file az10.s
+   Uses
+      None
+Comment: PIO_PDSR unused
+PIO_PER 400E0E00
+
+Symbol: PIO_PER
+   Definitions
+      At line 1 in file az10.s
+   Uses
+      At line 113 in file az10.s
+Comment: PIO_PER used once
+PIO_PUER 400E0E64
+
+Symbol: PIO_PUER
+   Definitions
+      At line 6 in file az10.s
+   Uses
+      None
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Absolute symbols
+
+Comment: PIO_PUER unused
+PIO_SODR 400E0E30
+
+Symbol: PIO_SODR
+   Definitions
+      At line 4 in file az10.s
+   Uses
+      At line 64 in file az10.s
+      At line 80 in file az10.s
+      At line 96 in file az10.s
+      At line 131 in file az10.s
+
+8 symbols
+359 symbols in table

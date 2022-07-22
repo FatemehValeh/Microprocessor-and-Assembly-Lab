@@ -1,0 +1,55 @@
+Dependencies for Project 'code', Target 'Target 1': (DO NOT MODIFY !)
+F (.\az10.s)(0x61C78CDD)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include--pd "__UVISION_VERSION SETA 525" --pd "_RTE_ SETA 1" --pd "__SAM3N4A__ SETA 1"--list .\listings\az10.lst --xref -o .\objects\az10.o --depend .\objects\az10.d)
+F (RTE\Device\ATSAM3N4A\startup_SAM3N.s)(0x57DAB85A)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include--pd "__UVISION_VERSION SETA 525" --pd "_RTE_ SETA 1" --pd "__SAM3N4A__ SETA 1"--list .\listings\startup_sam3n.lst --xref -o .\objects\startup_sam3n.o --depend .\objects\startup_sam3n.d)
+F (RTE\Device\ATSAM3N4A\system_SAM3N.c)(0x57DAB85A)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include-D__UVISION_VERSION="525" -D_RTE_ -D__SAM3N4A__-o .\objects\system_sam3n.o --omf_browse .\objects\system_sam3n.crf --depend .\objects\system_sam3n.d)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\sam3n.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\sam3n4a.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F0C76)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\core_cm3.h)(0x5A8E5F2A)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_version.h)(0x5A55D52A)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_compiler.h)(0x5A8E5F2A)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h)(0x5A8E5F2A)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\system_sam3n.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\adc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\chipid.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\dacc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\efc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\gpbr.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\matrix.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\pdc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\pio.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\pmc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\pwm.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\rstc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\rtc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\rtt.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\spi.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\supc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\tc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\twi.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\uart.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\usart.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\component\wdt.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\spi.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\tc0.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\twi0.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\twi1.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\pwm.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\usart0.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\adc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\dacc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\matrix.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\pmc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\uart0.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\chipid.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\uart1.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\efc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\pioa.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\piob.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\rstc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\supc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\rtt.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\wdt.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\rtc.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\instance\gpbr.h)(0x57DAB858)
+I (C:\Keil_v5\ARM\PACK\Atmel\SAM3N_DFP\1.0.62\include\pio\sam3n4a.h)(0x57DAB858)
